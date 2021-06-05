@@ -1,0 +1,1135 @@
+global !p
+def upperfirst(t):
+	if len(t) < 2:
+		return '' if len(t) < 1 else t.capitalize()
+	return t[0].capitalize() + t[1:]
+def lowerdash(t):
+	return '-'.join([ w.lower() for w in re.findall('[a-z]+|[A-Z]+[a-z]*', t) ])
+endglobal
+
+# Normal javascript snippets ==========================================
+
+# Functions -----------------------------------------------------------
+
+snippet af
+(${1}) => ${2}
+endsnippet
+
+snippet afx
+(${1}) => {
+${2}
+}
+endsnippet
+
+snippet fn
+	function ${1:name} (${2}) {
+		${3}
+	}
+endsnippet
+
+snippet fx
+	function (${1}) {
+		${2}
+	}
+endsnippet
+
+snippet fgn
+	function* ${1:name} (${2}) {
+		${3}
+	}
+endsnippet
+
+# Definitions --------------------------------------------------------
+
+snippet const
+const ${1} = ${0}
+endsnippet
+
+snippet let
+	let ${1} = ${0}
+endsnippet
+
+snippet var
+	var ${1} = ${0}
+endsnippet
+
+snippet cla
+	class ${1} {
+		${0}
+	}
+endsnippet
+
+snippet clex
+	class ${1} extends ${2} {
+		${0}
+	}
+endsnippet
+
+# Console ------------------------------------------------------------
+
+snippet cl
+	console.log(${1:obj})
+endsnippet
+
+snippet cd
+  console.dir(${1:obj})
+endsnippet
+
+snippet ce
+	console.error(${1:obj})
+endsnippet
+
+snippet ci
+	console.info(${1:obj})
+endsnippet
+
+snippet cw
+	console.warn(${1:obj})
+endsnippet
+
+snippet ct "console.table" w
+console.table($1)
+endsnippet
+
+snippet cdb "console.debug" w
+console.debug($1)
+endsnippet
+
+# DOM Manipulation ---------------------------------------------------
+
+snippet ael
+${1:document}.addEventListener('${2:event}', ${3:function})
+endsnippet
+
+snippet ach
+	${1:document}.appendChild(${2:elem})
+endsnippet
+
+snippet ca
+	${1:document}.classList.add('${2:class}')
+endsnippet
+
+snippet cr
+	${1:document}.classList.remove('${2:class}')
+endsnippet
+
+snippet ct
+	${1:document}.classList.toggle('${2:class}')
+endsnippet
+
+snippet ih
+	${1:document}.innerHTML = '${2:html}'
+endsnippet
+
+snippet cdf
+	${1:document}.createDocumentFragment(${2:elem})
+endsnippet
+
+snippet cel
+	${1:document}.createElement(${2:elem})
+endsnippet
+
+snippet ra
+	${1:document}.removeAttribute('${2:attr}')
+endsnippet
+
+snippet rc
+	${1:document}.removeChild(${2:elem})
+endsnippet
+
+snippet sa
+	${1:document}.setAttribute('${2:attr}', ${3:value})
+endsnippet
+
+snippet tc
+	${1:document}.textContent = '${2:content}'
+endsnippet
+
+# Queries ------------------------------------------------------------
+
+snippet ga
+	${1:document}.getAttribute('${2:attr}')
+endsnippet
+
+snippet gi
+${1:document}.getElementById('${2:id}')
+endsnippet
+
+snippet gc
+	${1:document}.getElementsByClassName('${2:class}')
+endsnippet
+
+snippet gt
+	${1:document}.getElementsByTagName('${2:tag}')
+endsnippet
+
+snippet qsa
+${1:document}.querySelectorAll('${2:selector}')
+endsnippet
+
+snippet qs
+	${1:document}.querySelector('${2:selector}')
+endsnippet
+
+# Logic Operators ----------------------------------------------------
+
+snippet if
+	if (${1:condition}) {
+		${0}
+	}
+endsnippet
+
+snippet ife
+	if (${1:condition}) {
+		${2}
+	} else {
+		${0}
+	}
+endsnippet
+
+snippet ifei
+	if (${1:condition}) {
+		${2}
+	} else if (${3:condition}) {
+		${0}
+	}
+endsnippet
+
+snippet switch
+	switch (${1:condition}) {
+		case ${2:when}:
+			${0}
+	}
+endsnippet
+
+snippet tc
+	try {
+		${1}
+	} catch (${2:err}) {
+		${0}
+	}
+endsnippet
+
+snippet tf
+	try {
+		${1}
+	} finally {
+		${0}
+	}
+endsnippet
+
+snippet tcf
+	try {
+		${1}
+	} catch (${2:err}) {
+		${3}
+	} finally {
+		${0}
+	}
+endsnippet
+
+snippet jp
+	JSON.parse(${1:obj})
+endsnippet
+
+snippet js
+	JSON.stringify(${1:obj})
+endsnippet
+
+snippet for
+	for (let i = 0 i < ${1:length} i++) {
+		${0}
+	}
+endsnippet
+
+snippet foreach
+	${1:array}.forEach((${2:item}) => {
+		${0}
+	})
+endsnippet
+
+snippet forin
+	for (${1:prop} in ${2:obj}) {
+		if ($2.hasOwnProperty($1)) {
+			${0}
+		}
+	}
+endsnippet
+
+snippet forof
+	for (let ${1:elem} of ${2:obj}) {
+		${0}
+	}
+endsnippet
+
+snippet while
+	while (${1:condition}) {
+		${0}
+	}
+endsnippet
+
+# Miscellaneous ------------------------------------------------------
+
+snippet al
+	alert(${1:msg})
+endsnippet
+
+snippet co
+	confirm(${1:msg})
+endsnippet
+
+snippet de
+	debugger
+endsnippet
+
+snippet pm
+	prompt(${1:msg})
+endsnippet
+
+snippet us
+	'use strict'
+endsnippet
+
+snippet st
+	setTimeout(${2:function}, ${1:duration})
+endsnippet
+
+snippet si
+	setInterval(${2:function}, ${1:duration})
+endsnippet
+
+snippet dev "process.env.NODE_ENV !== 'production'" w
+process.env.NODE_ENV !== 'production'
+endsnippet
+
+snippet prod "process.env.NODE_ENV === 'production'" w
+process.env.NODE_ENV === 'production'
+endsnippet
+
+# Import Export ------------------------------------------------------
+
+snippet imp "import package that converts from camelCase or PascalCase to kebab-cased" b
+import $1 from '$2`!p snip.rv=lowerdash(t[1])`'
+endsnippet
+
+snippet impf "import File from './File'" b
+import $1 from '${2:./}${3:$1}'
+endsnippet
+
+snippet impn "import { nested } from" b
+import { $1 } from '$2'
+endsnippet
+
+snippet impa "import * as Thing from" b
+import * as $1 from "$2`!p snip.rv=lowerdash(t[1])`"
+endsnippet
+
+snippet impp "import file without a declaration" b
+import '$1'
+endsnippet
+
+snippet icn "import classnames as cn" b
+import cn from 'classnames'
+endsnippet
+
+snippet ism "import scss module" b
+import ${2:styles} from './${1:`!v expand('%:t:r')`}.module.scss'
+endsnippet
+
+snippet rc "require package that converts from camelCase or PascalCase to kebab-cased" b
+const $1 = require('$2`!p snip.rv=lowerdash(t[1])`')
+endsnippet
+
+snippet rcn "const { nested } = require('package')" b
+const { $1 } = require('$2');
+endsnippet
+
+snippet exp "export { default } from './CurrentFolderName'"
+export { default } from './${1:`!v expand('%:p:h:t')`}'
+endsnippet
+
+snippet expf "export File from './File'" b
+export $1 from '${2:./}$1'
+endsnippet
+
+snippet expn "export nested" b
+export { $1 } from '$2'
+endsnippet
+
+snippet expd "export { default as File } from './File'" b
+export { default as $1 } from '${2:./}$1'
+endsnippet
+
+snippet expa "export * from" b
+export * from '$1'
+endsnippet
+
+# React Snippets -----------------------------------------------------
+
+snippet rcc "React class component" b
+import React, { Component } from 'react'
+
+export default class $1 extends Component {
+  render() {
+    return <div>$2</div>
+  }
+}
+endsnippet
+
+snippet rce "React class exported" b
+import React, { Component } from 'react'
+
+export class $1 extends Component {
+  render() {
+    return <div>$2</div>
+  }
+}
+
+export default $1
+endsnippet
+
+snippet rcep
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
+
+export class $1 extends Component {
+  static propTypes = {}
+
+  render() {
+    return <div>$2</div>
+  }
+}
+
+export default $1
+endsnippet
+
+snippet rcon "React class constructor" b
+constructor(props) {
+	super(props)
+
+	this.state = { $1
+}
+endsnippet
+
+snippet rpc
+import React, { PureComponent } from 'react'
+
+export default class $1 extends PureComponent {
+  render() {
+    return <div>$2</div>
+  }
+}
+endsnippet
+
+snippet rpcp
+import React, { PureComponent } from 'react'
+import PropTypes from 'prop-types'
+
+export default class $1 extends PureComponent {
+  static propTypes = {}
+
+  render() {
+    return <div>$2</div>
+  }
+}
+endsnippet
+
+snippet rpce
+import React, { PureComponent } from 'react'
+import PropTypes from 'prop-types'
+
+export class $1 extends PureComponent {
+  static propTypes = {}
+
+  render() {
+    return <div>$2</div>
+  }
+}
+
+export default $1
+endsnippet
+
+snippet rccp
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
+
+export default class $1 extends Component {
+  static propTypes = {
+    $2: $3,
+  }
+
+  render() {
+    return <div>$4</div>
+  }
+}
+endsnippet
+
+snippet rfcp
+import React from 'react'
+import PropTypes from 'prop-types'
+
+function $1(props) {
+  return <div>$0</div>
+}
+
+$1.propTypes = {}
+
+export default $1
+endsnippet
+
+snippet rfc
+import React from 'react'
+
+export default function $1() {
+  return <div>$0</div>
+}
+endsnippet
+
+snippet rfce
+import React from 'react'
+
+function $1() {
+  return <div>$0</div>
+}
+
+export default $1
+endsnippet
+
+snippet rafcp
+import React from 'react'
+import PropTypes from 'prop-types'
+
+const $1 = (props) => {
+  return <div>$0</div>
+}
+
+$1.propTypes = {}
+
+export default $1
+endsnippet
+
+snippet rafcp
+import React from 'react'
+
+const $1 = () => {
+  return <div>$0</div>
+}
+
+export default $1
+endsnippet
+
+snippet rmc
+import React, { memo } from 'react'
+
+export default memo(function $1() {
+  return <div>$0</div>
+})
+endsnippet
+
+snippet rmcp
+import React, { memo } from 'react'
+import PropTypes from 'prop-types'
+
+const $1 = memo(function $1(props) {
+  return <div>$0</div>
+})
+
+$1.propTypes = {}
+
+export default $1
+endsnippet
+
+snippet rcredux
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
+
+export class $1 extends Component {
+  render() {
+    return <div>$4</div>
+  }
+}
+
+const mapStateToProps = (state) => ({})
+
+const mapDispatchToProps = {}
+
+export default connect(mapStateToProps, mapDispatchToProps)($1)
+endsnippet
+
+snippet rcreduxp
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
+
+export class $1 extends Component {
+  static propTypes = {
+    $2: $3,
+  }
+
+  render() {
+    return <div>$4</div>
+  }
+}
+
+const mapStateToProps = (state) => ({})
+
+const mapDispatchToProps = {}
+
+export default connect(mapStateToProps, mapDispatchToProps)($1)
+endsnippet
+
+snippet rfcredux
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
+
+export const $1 = () => {
+  return <div>$4</div>
+}
+
+const mapStateToProps = (state) => ({})
+
+const mapDispatchToProps = {}
+
+export default connect(mapStateToProps, mapDispatchToProps)($1)
+endsnippet
+
+snippet rfreduxp
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
+
+export const $1 = () => {
+  return <div>$4</div>
+}
+
+$1.propTypes = {
+  $2: $3,
+}
+
+const mapStateToProps = (state) => ({})
+
+const mapDispatchToProps = {}
+
+export default connect(mapStateToProps, mapDispatchToProps)($1)
+endsnippet
+
+snippet reduxmap
+const mapStateToProps = (state) => ({})
+
+const mapDispatchToProps = {}
+endsnippet
+
+snippet sfce "simple function component export (no props)" b
+import React from 'react'
+
+const ${1:`!v expand('%:t:r')`} = () => {
+	return null$0
+}
+
+export default $1
+endsnippet
+
+snippet ffce "forwarded function component export" b
+import React, { forwardRef } from 'react'
+
+const $1 = forwardRef(function ${1:`!v expand('%:t:r')`}(props, ref) {
+	return (
+		<div ref={ref}>$0
+		</div>
+	)
+})
+
+export default $1
+endsnippet
+
+snippet rcf "react class function" b
+$1 = (${2:e}) => {
+	$3
+}
+endsnippet
+
+# ==========================================
+# Component Specs and Lifecycle Section
+#
+snippet sdp "static default props" b
+static defaultProps = {
+	$1
+}
+endsnippet
+
+snippet cdp "component default props" b
+${1:`!v expand('%:t:r')`}.defaultProps = {
+	$2
+}
+endsnippet
+
+snippet spt "static prop types" b
+static propTypes = {
+	${1:className}: ${2:PropTypes.string},$0
+}
+endsnippet
+
+snippet cpt "component prop types" b
+${1:`!v expand('%:t:r')`}.propTypes = {
+	${2:className}: ${3:PropTypes.string},$0
+}
+endsnippet
+
+snippet gds "get derived state from props" b
+static getDerivedStateFromProps(nextProps, prevState) {
+	return ${1:null}$0
+}
+endsnippet
+
+snippet gde "get derived state from error" b
+static getDerivedStateFromError(error) {
+	return ${1:null}$0
+}
+endsnippet
+
+snippet cdm "component did mount" b
+componentDidMount() {
+	$1
+}
+endsnippet
+
+snippet scu "should component update" b
+shouldComponentUpdate(nextProps, nextState) {
+	return ${1:true}$0
+}
+endsnippet
+
+snippet gsbu "get snapshot before update" b
+getSnapshotBeforeUpdate(prevProps, prevState) {
+	return ${1:null}$0
+}
+endsnippet
+
+snippet cdu "component did update" b
+componentDidUpdate(prevProps, prevState${1:, snapshot}) {
+	$0
+}
+endsnippet
+
+snippet cdc "component did catch" b
+componentDidCatch(error, info) {
+	$0
+}
+endsnippet
+
+snippet cwum "component will unmount" b
+componentWillUnmount() {
+	$1
+}
+endsnippet
+
+# ==========================================
+# Deprecated Lifecycle Section
+#
+snippet cwm "component will mount" b
+componentWillMount() {
+	$1
+}
+endsnippet
+
+snippet cwrp "component will receive props" b
+componentWillReceiveProps(nextProps) {
+	$1
+}
+endsnippet
+
+snippet cwu "component will update" b
+componentWillUpdate(nextProps, nextState) {
+	$3
+}
+endsnippet
+
+
+# ==========================================
+# Hooks and effects
+#
+
+snippet useS "useState()" b
+const [$1, set$3`!p snip.rv=upperfirst(t[1])`] = useState($2)
+endsnippet
+
+snippet useE "useEffect()" b
+useEffect(() => {
+	$0
+}, [$1])
+endsnippet
+
+snippet useEA "useEffect() async" b
+useEffect(() => {
+	let cancelled = false
+
+	;(async function ${4:doWork}() {
+		${1:// async work here}
+		if (cancelled) {
+			return
+		}
+
+		$2
+	})()
+
+	return () => {
+		cancelled = true
+	}
+}, [$3])
+endsnippet
+
+snippet useC "useContext()" b
+const ${1:context} = useContext($2)
+endsnippet
+
+snippet useRed "useReducer(reducer, initialValue)" b
+const [${3:state}, ${4:dispatch}] = useReducer(${1:reducer}, ${2:null})
+endsnippet
+
+snippet useCB "useCallback(fn, inputs)" b
+const ${1:callback} = useCallback(($2) => ${3:{
+	$4
+}}, [$5])
+endsnippet
+
+snippet useM "useMemo(fn, inputs)" b
+const ${1:memoized} = useMemo(() => ${2:{
+	$3
+}}, [$4])
+endsnippet
+
+snippet useR "useRef(defaultValue)" b
+const ${1:ref} = useRef(${2:null})
+endsnippet
+
+snippet useI "useImperitiveHandle(ref, createHandle, [inputs])" b
+useImperitiveHandle(${1:ref}, ${4:() => ({
+	$2
+})}, ${5:[$3]})
+endsnippet
+
+snippet useL "useLayoutEffect()" b
+useLayoutEffect(() => {
+	$0
+}, [$1])
+endsnippet
+
+snippet useDV "useDebugValue(value)" b
+useDebugValue(${1:null})
+endsnippet
+
+# ==========================================
+# "Inline" versions of hooks
+#
+
+priority -1
+snippet useC "useContext()" w
+useContext$2($1)
+endsnippet
+
+snippet useCB "useCallback(fn, inputs)" w
+useCallback(($1) => ${2:{
+	$3
+}}, [$4])
+endsnippet
+
+snippet useM "useMemo(fn, inputs)" w
+useMemo(() => ${1:{
+	$2
+}}, [$3])
+endsnippet
+
+snippet useR "useRef(defaultValue)" w
+useRef$2(${1:null})$0
+endsnippet
+
+priority 0
+
+# ==========================================
+# Other useful react/redux snippets
+#
+
+snippet mc "mirrored const"
+const $1 = '$1'
+endsnippet
+
+snippet useD "useDispatch" b
+const dispatch = useDispatch()
+endsnippet
+
+snippet useSL "useSelector(selector)" b
+const ${1:value} = useSelector(${2:state => $3})
+endsnippet
+
+snippet reft "export type Name = Ref<E | null>" b
+export type $1 = Ref<${3:HTML{$2}Element} | null>$0
+endsnippet
+
+snippet mro "export type Name = MutableRefObject<E | null>" b
+export type $1 = MutableRefObject<${3:HTML{$2}Element} | null>$0
+endsnippet
+
+snippet refcb "export type Name = RefCallback<E | null>" b
+export type $1 = RefCallback<${3:HTML{$2}Element} | null>$0
+endsnippet
+
+priority -1
+snippet useD "useDispatch" b
+useDispatch()
+endsnippet
+
+snippet useSL "useSelector(state)" w
+useSelector((${1:state => $2}))
+endsnippet
+
+snippet useAS "useSelector(state)" w
+useAppSelector(${1:state => $2})
+endsnippet
+
+snippet reft "Ref<E | null>" w
+Ref<${2:HTML{$1}Element} | null>$0
+endsnippet
+
+snippet mro "MutableRefObject<E | null>" w
+MutableRefObject<${2:HTML{$1}Element} | null>$0
+endsnippet
+
+snippet refcb "Ref<E | null>" w
+RefCallback<${2:HTML{$1}Element} | null>$0
+endsnippet
+
+priority 0
+
+# ==========================================
+# redux toolkit snippets
+#
+
+snippet cs "createSlice()" b
+const { actions, reducer } = createSlice({
+	name: "${1:`!v expand('%:t:r')`}",
+	initialState: $2,
+	reducers: {
+		$0
+	}
+})
+endsnippet
+
+snippet ecs "export createSlice()" b
+import { createSlice } from "@reduxjs/toolkit"
+
+const { actions, reducer } = createSlice({
+	name: "${1:`!v expand('%:t:r')`}",
+	initialState: $2,
+	reducers: {
+		$3: (state) => state,
+	}
+})
+
+export const { $3 } = actions
+
+export default reducer
+endsnippet
+
+snippet cpr "create prepare reducer" b
+$1: {
+	reducer(state, action) {
+		$0
+	},
+	prepare($2) {
+		return { payload: { $3 } }
+	}
+}
+endsnippet
+
+snippet cat "create async thunk" b
+export const $1 = createAsyncThunk("$2$1", async ($3) => {
+	$0
+})
+endsnippet
+
+priority -1
+
+snippet cat "create async thunk (inline)" w
+createAsyncThunk("$1", async ($2) => {
+	$0
+})
+endsnippet
+
+priority 0
+
+# Prop Types Section -------------------------------------------------
+
+snippet pt.a "PropTypes.array" w
+PropTypes.array
+endsnippet
+
+snippet pt.ar "PropTypes.array.isRequired" w
+PropTypes.array.isRequired
+endsnippet
+
+snippet pt.b "PropTypes.bool" w
+PropTypes.bool
+endsnippet
+
+snippet pt.br "PropTypes.bool.isRequired" w
+PropTypes.bool.isRequired
+endsnippet
+
+snippet pt.f "PropTypes.func" w
+PropTypes.func
+endsnippet
+
+snippet pt.fr "PropTypes.func.isRequired" w
+PropTypes.func.isRequired
+endsnippet
+
+snippet pt.nu "PropTypes.number" w
+PropTypes.number
+endsnippet
+
+snippet pt.nur "PropTypes.number.isRequired" w
+PropTypes.number.isRequired
+endsnippet
+
+snippet pt.o "PropTypes.object" w
+PropTypes.object
+endsnippet
+
+snippet pt.or "PropTypes.object.isRequired" w
+PropTypes.object.isRequired
+endsnippet
+
+snippet pt.s "PropTyes.string" w
+PropTypes.string
+endsnippet
+
+snippet pt.sr "PropTyes.string.isRequired" w
+PropTypes.string.isRequired
+endsnippet
+
+snippet pt.no "PropTypes.node" w
+PropTypes.node
+endsnippet
+
+snippet pt.nor "PropTypes.node.isRequired" w
+PropTypes.node.isRequired
+endsnippet
+
+snippet pt.e "PropTypes.element" w
+PropTypes.element
+endsnippet
+
+snippet pt.er "PropTypes.element.isRequired" w
+PropTypes.element.isRequired
+endsnippet
+
+snippet pt.ao "PropTypes.arrayOf()" w
+PropTypes.arrayOf(${1:PropTypes.string})
+endsnippet
+
+snippet pt.aor "PropTypes.arrayOf().isRequired" w
+PropTypes.arrayOf(${1:PropTypes.string}).isRequired
+endsnippet
+
+snippet pt.io "PropTypes.instanceOf()" w
+PropTypes.instanceOf(${1:PropTypes.string})
+endsnippet
+
+snippet pt.ior "PropTypes.instanceOf().isRequired" w
+PropTypes.instanceOf(${1:PropTypes.string}).isRequired
+endsnippet
+
+snippet pt.oo "PropTypes.objectOf()" w
+PropTypes.objectOf(${1:PropTypes.string})
+endsnippet
+
+snippet pt.oor "PropTypes.objectOf().isRequired" w
+PropTypes.objectOf(${1:PropTypes.string}).isRequired
+endsnippet
+
+snippet pt.one "PropTypes.oneOf([])" w
+PropTypes.oneOf(['$1'$2])
+endsnippet
+
+snippet pt.oner "PropTypes.oneOf([]).isRequired" w
+PropTypes.oneOf(['$1'$2]).isRequired
+endsnippet
+
+snippet pt.onet "PropTYpes.oneOfType([])" w
+PropTypes.oneOfType([
+	$1
+])
+endsnippet
+
+snippet pt.onetr "PropTYpes.oneOfType([]).isRequired" w
+PropTypes.oneOfType([
+	$1
+]).isRequired
+endsnippet
+
+snippet pt.sh "PropTypes.shape" w
+PropTypes.shape({
+	$1
+})
+endsnippet
+
+snippet pt.shr "PropTypes.shape.isRequired" w
+PropTypes.shape({
+	$1
+}).isRequired
+endsnippet
+
+# Test Snippets ------------------------------------------------------
+
+snippet rtf "React Test File" b
+import React from 'react'
+import { render } from '@testing-library/react'
+
+import ${1:`!v expand('%:t:r')`} from '../$1'
+
+describe('$1', () => {
+	it('should $2', () => {
+		$3
+	})
+})
+endsnippet
+
+snippet rhtf "React Hooks Test File" b
+import { renderHook } from '@testing-library/react-hooks'
+
+import $2 from '../${1:`!v expand('%:t:r')`}'
+
+describe('$1', () => {
+	it('should $3', () => {
+		$4
+	})
+})
+endsnippet
+
+snippet desc "describe a test" b
+describe('$1', () => {
+	it('should $2', () => {
+		$3
+	})
+})
+endsnippet
+
+snippet it "create a test block" b
+it('should $1', () => {
+	$2
+})
+endsnippet
+
+snippet ait "create an async test block" b
+it('should $1', async () => {
+	$2
+})
+endsnippet
+
+snippet todo "it.todo()" b
+it.todo('should $1')
+endsnippet
+
+snippet es "expect(container).toMatchSnapshot()" b
+expect(${1:container}).toMatchSnapshot()$0
+endsnippet

@@ -1,0 +1,494 @@
+priority -49
+
+snippet p "padding"
+padding: ${2:0};$0
+endsnippet
+
+snippet m "margin"
+margin: ${2:0};$0
+endsnippet
+
+snippet bd "border"
+border: ${2:0};$0
+endsnippet
+
+snippet d "display"
+display: ${2:none};$0
+endsnippet
+
+snippet bg "background"
+background: ${2:none};$0
+endsnippet
+
+snippet ff "font-family"
+font-family: ${2:"Helvetica Neue", Helvetica, Arial, sans-serif};$0
+endsnippet
+
+snippet h "height"
+height: ${2:auto};$0
+endsnippet
+
+snippet w "width"
+width: ${2:auto};$0
+endsnippet
+
+snippet pos "position"
+position: ${2:relative};$0
+endsnippet
+
+snippet tt "text-transform"
+text-transform: ${2:none};$0
+endsnippet
+
+snippet ! "!important CSS (!)"
+!important
+endsnippet
+
+snippet tsh "text-shadow: color-hex x y blur (text)"
+text-shadow: ${2:${2:color} ${3:offset-x} ${4:offset-y} ${5:blur}};$0
+endsnippet
+
+snippet bxsh "box-shadow: color-hex x y blur (text)"
+box-shadow: ${2:${2:offset-x} ${3:offset-y} ${4:blur} ${5:spread} ${6:color}};$0
+endsnippet
+
+#
+# Colors
+#
+
+snippet rgb "color rgb"
+rgb(${2:255}, ${2:255}, ${3:255})$0
+endsnippet
+
+snippet rgba "color rgba"
+rgba(${2:255}, ${2:255}, ${3:255}, ${4:0.5})$0
+endsnippet
+
+snippet hsl "color hsl"
+hsl(${2:360}, ${2:100}%, ${3:100}%)$0
+endsnippet
+
+snippet hsla "color hsla"
+hsla(${2:360}, ${2:100}%, ${3:100}%, ${4:0.5})$0
+endsnippet
+
+#
+# Selectors
+#
+
+snippet :fc
+:first-child
+endsnippet
+
+snippet :lc
+:last-child
+endsnippet
+
+snippet :nc
+:nth-child($1)
+endsnippet
+
+snippet :nlc
+:nth-last-child($1)
+endsnippet
+
+snippet :oc
+:only-child
+endsnippet
+
+#
+# Pseudo-elements
+#
+
+snippet :a
+:after
+endsnippet
+
+snippet :b
+:before
+endsnippet
+
+snippet ::a
+::after
+endsnippet
+
+snippet ::b
+::before
+endsnippet
+
+###########################################################################
+#                    Most of these came from TextMate                     #
+###########################################################################
+
+snippet background "background-attachment: scroll:fixed (background)"
+background-attachment: ${2:scroll/fixed};$0
+endsnippet
+
+snippet background "background-color:  color-hex (background)"
+background-color: #${2:DDD};$0
+endsnippet
+
+snippet background "background-color:  color-name (background)"
+background-color: ${2:red};$0
+endsnippet
+
+snippet background "background-color:  color-rgb (background)"
+background-color: rgb(${2:255},${2:255},${3:255});$0
+endsnippet
+
+snippet background "background-color:  transparent (background)"
+background-color: transparent;$1
+endsnippet
+
+snippet background "background-image:  none (background)"
+background-image: none;$1
+endsnippet
+
+snippet background "background-image:  url (background)"
+background-image: url($2);$0
+endsnippet
+
+snippet background "background-position:  position (background)"
+background-position: ${2:top left/top center/top right/center left/center center/center right/bottom left/bottom center/bottom right/x-% y-%/x-pos y-pos};$0
+endsnippet
+
+snippet background "background-repeat:  r:r-x:r-y:n-r (background)"
+background-repeat: ${2:repeat/repeat-x/repeat-y/no-repeat};$0
+endsnippet
+
+snippet background "background:  color image repeat attachment position (background)"
+background:${7: #${1:DDD}} url($2) ${3:repeat/repeat-x/repeat-y/no-repeat} ${4:scroll/fixed} ${5:top left/top center/top right/center left/center center/center right/bottom left/bottom center/bottom right/x-% y-%/x-pos y-pos};$0
+endsnippet
+
+snippet border "border-bottom-color: size style color (border)"
+border-bottom-color: #${2:999};$0
+endsnippet
+
+snippet border "border-bottom-style: size style color (border)"
+border-bottom-style: ${2:none/hidden/dotted/dashed/solid/double/groove/ridge/inset/outset};$0
+endsnippet
+
+snippet border "border-bottom-width: size style color (border)"
+border-bottom-width: ${2:1}px ${2:solid} #${3:999};$0
+endsnippet
+
+snippet border "border-bottom: size style color (border)"
+border-bottom: ${2:1}px ${2:solid} #${3:999};$0
+endsnippet
+
+snippet border "border-color: color (border)"
+border-color: ${2:999};$0
+endsnippet
+
+snippet border "border-left-color: color (border)"
+border-right-color: #${2:999};$0
+endsnippet
+
+snippet border "border-left-style: style (border)"
+border-left-style: ${2:none/hidden/dotted/dashed/solid/double/groove/ridge/inset/outset};$0
+endsnippet
+
+snippet border "border-left-width: size (border)"
+border-left-width: ${2:1}px
+endsnippet
+
+snippet border "border-left: size style color (border)"
+border-left: ${2:1}px ${2:solid} #${3:999};$0
+endsnippet
+
+snippet border "border-right-color: color (border)"
+border-right-color: #${2:999};$0
+endsnippet
+
+snippet border "border-right-style: style (border)"
+border-right-style: ${2:none/hidden/dotted/dashed/solid/double/groove/ridge/inset/outset};$0
+endsnippet
+
+snippet border "border-right-width: size (border)"
+border-right-width: ${2:1}px
+endsnippet
+
+snippet border "border-right: size style color (border)"
+border-right: ${2:1}px ${2:solid} #${3:999};$0
+endsnippet
+
+snippet border "border-style: style (border)"
+border-style: ${2:none/hidden/dotted/dashed/solid/double/groove/ridge/inset/outset};$0
+endsnippet
+
+snippet border "border-top-color: color (border)"
+border-top-color: #${2:999};$0
+endsnippet
+
+snippet border "border-top-style: style (border)"
+border-top-style: ${2:none/hidden/dotted/dashed/solid/double/groove/ridge/inset/outset};$0
+endsnippet
+
+snippet border "border-top-width: size (border)"
+border-top-width: ${2:1}px
+endsnippet
+
+snippet border "border-top: size style color (border)"
+border-top: ${2:1}px ${2:solid} #${3:999};$0
+endsnippet
+
+snippet border "border-width: width (border)"
+border-width: ${2:1px};$0
+endsnippet
+
+snippet border "border:   size style color (border)"
+border: ${2:1px} ${2:solid} #${3:999};$0
+endsnippet
+
+snippet clear "clear: value (clear)"
+clear: ${2:left/right/both/none};$0
+endsnippet
+
+snippet color "color:  color-hex (color)"
+color: #${2:DDD};$0
+endsnippet
+
+snippet color "color:  color-name (color)"
+color: ${2:red};$0
+endsnippet
+
+snippet color "color:  color-rgb (color)"
+color: rgb(${2:255},${2:255},${3:255});$0
+endsnippet
+
+snippet cursor "cursor: type (cursor)"
+cursor: ${2:default/auto/crosshair/pointer/move/*-resize/text/wait/help};$0
+endsnippet
+
+snippet cursor "cursor: url (cursor)"
+cursor: url($2);$0
+endsnippet
+
+snippet direction "direction: ltr|rtl (direction)"
+direction: ${2:ltr|rtl};$0
+endsnippet
+
+snippet display "display: block (display)"
+display: block;$1
+endsnippet
+
+snippet display "display: common-types (display)"
+display: ${2:none/inline/block/list-item/run-in/compact/marker};$0
+endsnippet
+
+snippet display "display: inline (display)"
+display: inline;$1
+endsnippet
+
+snippet display "display: table-types (display)"
+display: ${2:table/inline-table/table-row-group/table-header-group/table-footer-group/table-row/table-column-group/table-column/table-cell/table-caption};$0
+endsnippet
+
+snippet float "float: left:right:none (float)"
+float: ${2:left/right/none};$0
+endsnippet
+
+snippet font "font-family:   family (font)"
+font-family: ${2:Arial, "MS Trebuchet"}, ${2:sans-}serif;$0
+endsnippet
+
+snippet font "font-size: size (font)"
+font-size: ${2:100%};$0
+endsnippet
+
+snippet font "font-style:   normal:italic:oblique (font)"
+font-style: ${2:normal/italic/oblique};$0
+endsnippet
+
+snippet font "font-variant:   normal:small-caps (font)"
+font-variant: ${2:normal/small-caps};$0
+endsnippet
+
+snippet font "font-weight: weight (font)"
+font-weight: ${2:normal/bold};$0
+endsnippet
+
+snippet font "font:   style variant weight size:line-height font -family (font)"
+font: ${2:normal/italic/oblique} ${2:normal/small-caps} ${3:normal/bold} ${4:1em/1.5em} ${5:Arial}, ${6:sans-}serif;$0
+endsnippet
+
+snippet font "font: size font (font)"
+font: ${2:75%} ${2:"Lucida Grande", "Trebuchet MS", Verdana,} ${3:sans-}serif;$0
+endsnippet
+
+snippet letter "letter-spacing:   length-em (letter)"
+letter-spacing: $2em;$0
+endsnippet
+
+snippet letter "letter-spacing:   length-px (letter)"
+letter-spacing: $2px;$0
+endsnippet
+
+snippet list "list-style-image: url (list)"
+list-style-image: url($2);$0
+endsnippet
+
+snippet list "list-style-position: pos (list)"
+list-style-position: ${2:inside/outside};$0
+endsnippet
+
+snippet list "list-style-type: asian (list)"
+list-style-type: ${2:cjk-ideographic/hiragana/katakana/hiragana-iroha/katakana-iroha};$0
+endsnippet
+
+snippet list "list-style-type: marker(list)"
+list-style-type: ${2:none/disc/circle/square};$0
+endsnippet
+
+snippet list "list-style-type: numeric (list)"
+list-style-type: ${2:decimal/decimal-leading-zero/zero};$0
+endsnippet
+
+snippet list "list-style-type: other (list)"
+list-style-type: ${2:hebrew/armenian/georgian};$0
+endsnippet
+
+snippet list "list-style-type: roman-alpha-greek (list)"
+list-style-type: ${2:lower-roman/upper-roman/lower-alpha/upper-alpha/lower-greek/lower-latin/upper-latin};$0
+endsnippet
+
+snippet list "list-style: type position image (list)"
+list-style: ${2:none/disc/circle/square/decimal/zero} ${2:inside/outside} url($3);$0
+endsnippet
+
+snippet margin "margin-bottom: length (margin)"
+margin-bottom: ${2:20px};$0
+endsnippet
+
+snippet margin "margin-left: length (margin)"
+margin-left: ${2:20px};$0
+endsnippet
+
+snippet margin "margin-right: length (margin)"
+margin-right: ${2:20px};$0
+endsnippet
+
+snippet margin "margin-top: length (margin)"
+margin-top: ${2:20px};$0
+endsnippet
+
+snippet margin "margin:   all (margin)"
+margin: ${2:20px};$0
+endsnippet
+
+snippet margin "margin: T R B L (margin)"
+margin: ${2:20px} ${2:0px} ${3:40px} ${4:0px};$0
+endsnippet
+
+snippet margin "margin: V H (margin)"
+margin: ${2:20px} ${2:0px};$0
+endsnippet
+
+snippet marker "marker-offset: auto (marker)"
+marker-offset: auto;$1
+endsnippet
+
+snippet marker "marker-offset: length (marker)"
+marker-offset: ${2:10px};$0
+endsnippet
+
+snippet overflow "overflow: type (overflow)"
+overflow: ${2:visible/hidden/scroll/auto};$0
+endsnippet
+
+snippet padding "padding-bottom: length (margin)"
+padding-bottom: ${2:20px};$0
+endsnippet
+
+snippet padding "padding-left: length (margin)"
+padding-left: ${2:20px};$0
+endsnippet
+
+snippet padding "padding-right: length (margin)"
+padding-right: ${2:20px};$0
+endsnippet
+
+snippet padding "padding-top: length (margin)"
+padding-top: ${2:20px};$0
+endsnippet
+
+snippet padding "padding:   T R B L (padding)"
+padding: ${2:20px} ${2:0px} ${3:40px} ${4:0px};$0
+endsnippet
+
+snippet padding "padding:   V H (padding)"
+padding: ${2:20px} ${2:0px};$0
+endsnippet
+
+snippet padding "padding:   all (padding)"
+padding: ${2:20px};$0
+endsnippet
+
+snippet position "position: type (position)"
+position: ${2:static/relative/absolute/fixed};$0
+endsnippet
+
+snippet { "properties { } ( } )"
+{
+	/* $2 */
+	$1
+
+endsnippet
+
+snippet scrollbar "scrollbar"
+scrollbar-base-color:       ${2:#CCCCCC};${2:
+scrollbar-arrow-color:      ${4:#000000};
+scrollbar-track-color:      ${5:#999999};
+scrollbar-2dlight-color:    ${5:#EEEEEE};
+scrollbar-highlight-color:  ${7:#FFFFFF};
+scrollbar-face-color:       ${8:#CCCCCC};
+scrollbar-shadow-color:     ${10:#999999};
+scrollbar-darkshadow-color: ${9:#666666};}
+endsnippet
+
+snippet selection "selection"
+$2::-moz-selection,
+$2::selection {
+	color: ${3:inherit};
+	background: ${4:inherit};
+}
+endsnippet
+
+snippet text "text-align: left:center:right (txt)"
+text-align: ${2:left/right/center/justify};$0
+endsnippet
+
+snippet text "text-decoration: none:underline:overline:line-through:blink (text)"
+text-decoration: ${2:none/underline/overline/line-through/blink};$0
+endsnippet
+
+snippet text "text-indent: length (text)"
+text-indent: ${2:10}px;$0
+endsnippet
+
+snippet text "text-transform: capitalize:upper:lower (text)"
+text-transform: ${2:capitalize/uppercase/lowercase};$0
+endsnippet
+
+snippet vertical "vertical-align: type (vertical)"
+vertical-align: ${2:baseline/sub/super/top/text-top/middle/bottom/text-bottom/length/%};$0
+endsnippet
+
+snippet visibility "visibility: type (visibility)"
+visibility: ${2:visible/hidden/collapse};$0
+endsnippet
+
+snippet white "white-space:  normal:pre:nowrap (white)"
+white-space: ${2:normal/pre/nowrap};$0
+endsnippet
+
+snippet word "word-spacing:  length (word)"
+word-spacing: ${2:10px};$0
+endsnippet
+
+snippet z "z-index: index (z)"
+z-index: $2;$0
+endsnippet
+
+# vim:ft=snippets:
+

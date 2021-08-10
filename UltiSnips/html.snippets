@@ -7,7 +7,7 @@ def lowerdash(t):
 	return '-'.join([ w.lower() for w in re.findall('[a-z]+|[A-Z]+[a-z]*', t) ])
 endglobal
 
-# Normal javascript snippets ==========================================
+# EJS snippets ============================================
 
 snippet ej
 	<% ${1} %>
@@ -16,6 +16,20 @@ endsnippet
 snippet ejs
 	<% ${1} %>
 endsnippet
+
+snippet for "ejs for loop" b
+<% for (let ${1:i = 0}; ${2:i<arr.length}; ${3:i++}) { %>
+	${0:body}
+<% } %>
+endsnippet
+
+snippet fore "ejs for Each loop" b
+<% ${1:array}.forEach((${2:single var}) => { %>
+	${0:body}
+<% }) %>
+endsnippet
+
+# HTML JS ------------------------------------------------
 
 snippet cl
 	console.log(${1})

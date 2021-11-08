@@ -25,7 +25,7 @@ endsnippet
 
 snippet afc "arrow function def" i
 const ${1} = (${2}) => {
-
+${3}
 }
 endsnippet
 
@@ -282,6 +282,11 @@ endsnippet
 
 # Miscellaneous ------------------------------------------------------
 
+snippet pd
+	e.preventDefault()
+	${1}
+endsnippet
+
 snippet al
 	alert(${1:msg})
 endsnippet
@@ -342,6 +347,14 @@ endsnippet
 
 snippet impp "import file without a declaration" b
 import '$1'
+endsnippet
+
+snippet imr "import react from" b
+import React from 'react'
+endsnippet
+
+snippet imrse "import react state + effect" b
+import React, { useState, useEffect } from 'react'
 endsnippet
 
 snippet icn "import classnames as cn" b
@@ -519,7 +532,11 @@ snippet rafc
 import React from 'react'
 
 const $1 = (${2}) => {
-  return (<div>$0</div>)
+  return (
+		<div>
+			${3}
+		</div>
+	)
 }
 
 export default $1
@@ -529,7 +546,11 @@ snippet rac
 import React from 'react'
 
 const $1 = (${2}) => {
-  return (<div>$0</div>)
+  return (
+		<div>
+			${3}
+		</div>
+	)
 }
 
 export default $1

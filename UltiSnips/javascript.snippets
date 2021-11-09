@@ -1205,8 +1205,10 @@ snippet vreq "assign a CommonJS-style module to a var"
 var ${0:${1/(.+\/)*(\w+)(-|\b|$)(\..+$)?/\u$2/g}} = require('$1');
 endsnippet
 
-snippet ex "module.exports"
-module.exports = $1;
+snippet me "module.exports"
+module.exports = {
+	$1;
+} 
 endsnippet
 
 snippet hcs "http.createServer"

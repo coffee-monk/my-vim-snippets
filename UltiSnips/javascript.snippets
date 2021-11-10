@@ -805,7 +805,6 @@ componentWillUpdate(nextProps, nextState) {
 }
 endsnippet
 
-
 # ==========================================
 # Hooks and effects
 #
@@ -818,6 +817,10 @@ snippet useE "useEffect()" b
 useEffect(() => {
 	$0
 }, [$1])
+endsnippet
+
+snippet us "useState()" b
+  const [$0, set] = useState($1)
 endsnippet
 
 snippet useEA "useEffect() async" b
@@ -839,8 +842,18 @@ useEffect(() => {
 }, [$3])
 endsnippet
 
+snippet ue "useEffect()" b
+  useEffect(() => {
+   $0 
+  }, [$1])
+endsnippet
+
 snippet useC "useContext()" b
 const ${1:context} = useContext($2)
+endsnippet
+
+snippet uc "useContext()" b
+const $1 = useContext($2)
 endsnippet
 
 snippet useRed "useReducer(reducer, initialValue)" b
